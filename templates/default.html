@@ -1,7 +1,13 @@
 <template id="my-decorated-div">
   <style>
-    DIV{
+    #main{
       border:1px solid;
+    }
+    p{
+      color:blue;
+    }
+    ::content p{
+      color: indigo;
     }
   </style>
   <script>
@@ -9,5 +15,7 @@
   <div id="main">
     <h1>I am a template used to construct a custom element.</h1>
     <h2>I come with scoped styles and scripts</h2>
+    <content></content>
+    <p>I am styled in scope. my style doesn't bleed out</p>
   </div>
 </template>

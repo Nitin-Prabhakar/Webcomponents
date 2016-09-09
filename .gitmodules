@@ -4,3 +4,6 @@
 [submodule "webcomponentsV1"]
 	path = webcomponentsV1
 	url = git@github.com:Nitin-Prabhakar/webcomponentsjs.git
+[submodule "custom-elements"]
+	path = custom-elements
+	url = git@github.com:webcomponents/custom-elements.git
