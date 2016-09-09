@@ -1,0 +1,26 @@
+{
+  "name": "webcomponents",
+  "authors": [
+    "Nitin <pmitwithnitin@gmail.com>"
+  ],
+  "description": "test webcomponents",
+  "main": "index.html",
+  "keywords": [
+    "webcomponents"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.22"
+  },
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
+}

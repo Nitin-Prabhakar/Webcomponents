@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nitin Prabhakar</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+        <script src="webcomponentsV1/dist/CustomElementsV1.min.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="js/app.js"></script>
+        <link rel="import" href="templates/default.html" onload="load()">
+        <link rel="import" href="templates/special.html" onload="loadSpecial()">
+    </head>
+    <body>
+      <my-div testV1=1>I am the content that goes into &lt;my-div&gt;'s shadowDOM's '&lt;content&gt;' tags</my-div>
+      <my-decorated-div></my-decorated-div>
+      <my-special-div></my-special-div>
+    </body>
+</html>
