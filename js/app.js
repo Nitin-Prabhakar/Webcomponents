@@ -1,3 +1,4 @@
+"use strict";
 //Demonstrating Custom Element Definitions as per V1 specs
 
 /* Constructing custom element using innerHTML for shadowTree
@@ -14,11 +15,6 @@ class myElement extends HTMLElement{
           //Whatever is between <mydiv></my-div> will go into this
           "<content></content>"+
       "</div>";
-
-
-      if(this.testV1){
-        console.log(this.testV1);
-      }
     }
     //setters and getters
     set testV1(val){
@@ -34,7 +30,7 @@ class myElement extends HTMLElement{
 //register custom element myElement with the browser
 window.customElements.define('my-div',myElement);
 
-//console.log(window.HTMLImports);
+
 
 /*
 Constructing custom element from a template
@@ -76,3 +72,59 @@ class mySpecialDiv extends HTMLElement{
 function loadSpecial(){//register custom element myDecoratedDiv with the browser
 window.customElements.define('my-special-div',mySpecialDiv);
 }
+
+/*
+extending a native element
+Currently Not Supported
+See https://github.com/webcomponents/custom-elements/issues/6#issuecomment-245968827
+*/
+class myAwesomeDiv extends /*HTMLDivElement*/HTMLElement{
+
+  constructor(){
+    super();
+    this.addContent();
+    this.addEventListener('click',e=>this.toggleFav());
+  }
+  set animate(val){
+    this.removeAttribute('animate');
+    if(val){
+      this.setAttribute('animate',true);
+    }
+  }
+  get animate(){
+    return this.hasAttribute('animate');
+  }
+  toggleFav(){
+    this.classList.toggle('favorite');
+    if(this.animate){
+      this.classList.toggle('favoured');
+    }
+    this.addContent();
+    if(this.classList.contains('favorite')){
+      var para = document.querySelector("#favoured");
+      para.innerHTML="Yay! I am favoured By you";
+    }
+
+  }
+  addContent(){
+    this.innerHTML="<style>.favoured #favoured{padding:48px; background-color:red; color:violet;}</style>";
+    var div = document.createElement('DIV');
+    var para = document.createElement('P');
+    para.setAttribute('id',"favoured");
+    para.innerHTML = "Click Click Click to favourite Me";
+    div.appendChild(para);
+    this.appendChild(div);
+  }
+
+}
+/*Define a custom element that extends a native element
+Currently not Supported
+*/
+//window.customElements.define('awesome-div', myAwesomeDiv,{extends:'div'});
+
+/*Register*/
+window.customElements.define('awesome-div', myAwesomeDiv);
+
+$(document).ready(function(){
+
+});
